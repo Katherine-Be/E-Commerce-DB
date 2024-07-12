@@ -19,7 +19,7 @@ Go to https://github.com/Katherine-Be/E-Commerce-DB and then clone the repositor
 ## Use
 Create the databse by importing the schema in the mySql CLI and then in a regular terminal, run "npm run seeds". After that you can make http requests to the database.
 
-![Demo](https://drive.google.com/file/d/1Y4Rwqb6NNMCqeGflOHjnrxl3jH_uRvys/view?usp=sharing)
+[CLICK HERE FOR APP DEMO](https://drive.google.com/file/d/1Y4Rwqb6NNMCqeGflOHjnrxl3jH_uRvys/view?usp=sharing)
 
 
 ## License
