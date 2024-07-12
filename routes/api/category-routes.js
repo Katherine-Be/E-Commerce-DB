@@ -23,8 +23,8 @@ router.get('/:id', (req, res) => {
   Category.findByPk(req.params.id, {
     include: [Product]
   })
-  .then((category) => {
-    res.json(category);
+  .then((categories) => {
+    res.json(categories);
   })
   .catch((err) => {
     res.status(500).json(err);
@@ -34,8 +34,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new category
   Category.create(req.body)
-  .then((category) => {
-    res.json(category);
+  .then((categories) => {
+    res.json(categories);
   })
   .catch((err) => {
     res.status(500).json(err);
@@ -49,8 +49,8 @@ router.put('/:id', (req, res) => {
       category_id: req.params.id
     }
   })
-  .then((category) => {
-    res.json(category);
+  .then((categories) => {
+    res.json(categories);
   })
   .catch((err) => {
     res.status(500).json(err);
@@ -61,11 +61,11 @@ router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
     where: {
-      id: req.params.id
+      category_id: req.params.id
     }
   })
-  .then((category) => {
-    res.json(category);
+  .then((categories) => {
+    res.json(categories);
   })
   .catch((err) => {
     res.status(500).json(err);

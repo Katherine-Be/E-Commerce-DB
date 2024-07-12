@@ -25,8 +25,8 @@ router.get('/:id', (req, res) => {
   Product.findByPk(req.params.id, {
     include: [Category, Tag]
   })
-  .then((product) => {
-    res.json(product);
+  .then((products) => {
+    res.json(products);
   })
   .catch((err) => {
     res.status(500).json(err);
@@ -44,7 +44,7 @@ router.post('/', (req, res) => {
     }
   */
   Product.create(req.body)
-    .then((product) => {
+    .then((producst) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
         return ProductTag.bulkCreate(productTagIdArr);
       }
       // if no product tags, just respond
-      res.status(200).json(product);
+      res.status(200).json(products);
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
     .catch((err) => {
@@ -73,7 +73,7 @@ router.put('/:id', (req, res) => {
       product_id: req.params.id,
     },
   })
-    .then((product) => {
+    .then((products) => {
       if (req.body.tagIds && req.body.tagIds.length) {
 
         ProductTag.findAll({
@@ -102,7 +102,7 @@ router.put('/:id', (req, res) => {
         });
       }
 
-      return res.json(product);
+      return res.json(products);
     })
     .catch((err) => {
       // console.log(err);
@@ -117,8 +117,8 @@ router.delete('/:id', (req, res) => {
       product_id: req.params.id
     }
   })
-  .then((product) => {
-    res.json(product);
+  .then((products) => {
+    res.json(products);
   })
   .catch((err) => {
     res.status(500).json(err);

@@ -23,8 +23,8 @@ router.get('/:id', (req, res) => {
   Tag.findByPk(req.params.id, {
     include: [Product]
   })
-  .then((tag) => {
-    res.json(tag);
+  .then((tags) => {
+    res.json(tags);
   })
   .catch((err) => {
     res.status(500).json(err);
@@ -34,8 +34,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new tag
   Tag.create(req.body)
-  .then((tag) => {
-    res.json(tag);
+  .then((tags) => {
+    res.json(tags);
   })
   .catch((err) => {
     res.status(500).json(err);
@@ -49,8 +49,8 @@ router.put('/:id', (req, res) => {
       tag_id: req.params.id
     }
   })
-  .then((tag) => {
-    res.json(tag);
+  .then((tags) => {
+    res.json(tags);
   })
   .catch((err) => {
     res.status(500).json(err);
@@ -65,8 +65,8 @@ router.delete('/:id', (req, res) => {
       tag_id: req.params.id
     }
   })
-  .then((tag) => {
-    res.json(tag);
+  .then((tags) => {
+    res.json(tags);
   })
   .catch((err) => {
     res.status(500).json(err);
